@@ -1,0 +1,8 @@
+venv/
+.env
+config.py
+__pycache__
+the_app/__pycache__
+config.ini
+.vscode/
+data/BaseDatos.db

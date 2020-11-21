@@ -1,0 +1,73 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Transactions {% endblock %}
+
+
+
+{% block link1 %}<a href="/" class="btn my-button desactivado">Transactions</a> {% endblock %}
+{% block link2 %}<a href="/purchase" class="btn my-button">Sell & Buy</a> {% endblock %}
+{% block link3 %}<a href="/status" class="btn my-button">Status</a> {% endblock %}
+
+
+
+
+{% block contenido %}
+    <h1>TRANSACTIONS</h1>
+    <div class=personalizadoA> 
+    {% if movimientos%}
+        <table class="table table-bordered table-hover table-striped">
+            <thead class="thead-light">
+                <tr class="centrar">
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>From</th>
+                    <th>Q</th>
+                    <th>To</th>
+                    <th>Q</th>
+                    <th>P.U</th>
+
+                </tr>
+            </thead>
+
+            
+            <tbody>
+                {% for dato in movimientos%}
+                <tr class="centrar">
+                    <td>{{ dato[0] }}</td>
+                    <td>{{ dato[1][:-4] }}</td>
+                    <td>{{ dato[2] }}</td>
+                    <td class = "alig_decimales ">{{ "{:,.8f}".format(dato[3]) }}</td>
+                    <td>{{ dato[4] }}</td>
+                    <td class = "alig_decimales ">{{   "{:,.8f}".format(dato[5]) }}</td>
+                    <td class = "alig_decimales ">{{ "{:,.8f}".format(dato[6])}}  {{ (dato[2]) }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            
+            
+
+        </table>
+
+    
+    {% else %}
+    <div class="centrar personalizadoB">SIN MOVIMIENTOS</div>
+    {% endif %}
+    </div>
+    <div>
+        {% if error_BBDD %}
+        <div class="error-msg centrar">{{error_BBDD}}</div>
+        {% endif %}
+    </div>
+
+
+    
+    <div class="btn-toolbar justify-content-between">
+        <div><a class="btn botones_abajo personalizado centered" href="/status">Status</a></div> 
+        <div><a class="btn botones_abajo personalizado centered" href="/purchase">+</a></div>   
+    </div>
+
+
+
+{% endblock %}
+

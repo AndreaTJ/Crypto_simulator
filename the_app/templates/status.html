@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title  %} Investment status {% endblock %}
+
+{% block link1 %}<a href="/" class="btn my-button">Transactions</a> {% endblock %}
+{% block link2 %}<a href="/purchase" class="btn my-button">Sell & Buy</a> {% endblock %}
+{% block link3 %}<a href="/status" class="btn my-button desactivado">Status</a> {% endblock %}
+
+{% block contenido %}
+<h1>INVESTMENTS STATUS</h1>
+<form action="/modificaproducto" method="post">
+   
+        <div class="row personalizadoA">
+            <div class="col-sm centrar">
+                <div>
+                    <span class = "titulo_campo">Invested amount:</span>
+                    {% if invertido %}
+                    <span class = "centrar bg_status">{{ invertido | round(2, 'floor')}} €</span>
+                    {% else %}
+                    <span class = "centrar">------------</span>
+                    {% endif %}
+                </div>
+
+                <div>
+                    <span class = "titulo_campo">Current value:</span>
+                    {% if valorActual %}
+                    <span class = "centrar bg_status">{{ valorActual | round(2, 'floor')}} €</span>
+                    {% else %}
+                    <span class = "centrar">------------</span>
+                    {% endif %}
+
+                </div>
+            </div> 
+
+        </div>
+        
+        <div>
+            {% if error_BBDD %}
+            <div class="error-msg", style="text-align: justify;">{{error_BBDD}}</div>
+            {% endif %}
+        </div>
+
+        <div>
+            {% if Errores %}
+            <div class="error-msg", style="text-align: justify;">{{Errores}}</div>
+            {% endif %}
+        </div>
+    
+
+        {% if SaldosCryto%}
+        
+        <div class="container personalizadoD">
+                <table class="table table-bordered table-hover table-striped saldos">
+                    <thead class="thead-light">
+                        <tr class="centrar">
+                            <th>Cryptocurrency</th>
+                            <th>Balance</th>
+                            <th>Balance in Euros</th>
+
+                        </tr>
+                    </thead>
+        
+                   
+                    <tbody>
+                        {% for saldo in SaldosCryto%}
+                        <tr class="centrar">  
+                            <td>{{saldo[0]}}</td> 
+                            <td class = "alig_decimales " >{{saldo[1]| round(8, 'floor')}}</td> 
+                            <td class = "alig_decimales ">{{saldo[2] | round(8, 'floor')}} €</td> 
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    
+                </table>
+        </div>
+        
+        
+        <div class="container personalizadoD">
+            <div>Balance of Euros Invested : {{Saldo_Euros |round(2, 'floor')}} €</div> 
+        </div>
+        <div class="container">
+            <div>Total value of Cryptocurrencies in Euros : {{Inversion_atrapada |round(2, 'floor')}} €</div> 
+        </div> 
+        {% endif %}
+
+
+<div class="d-flex flex-row-reverse">
+    <div class="p-2"><a class="btn botones_abajo personalizado2 centered"  href="/"> Back to Transactions</a></div>
+</div>
+
+</form>
+
+
+{% endblock %}

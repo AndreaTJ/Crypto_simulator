@@ -1,0 +1,327 @@
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+* {font-family: 'Roboto Mono', monospace;}
+
+.alig_decimales {
+    font-family: "Helvetica Neue" monospace !important;
+    text-align: right;
+  }
+
+/* Header y Footer */
+
+.header, .footer {
+    background-color: #F4A261;
+    padding:20px;
+}
+
+header {
+    margin-bottom: 30px;
+    
+    
+}
+
+footer {
+    margin-top: 50px;
+}
+    
+/* Título */
+
+h1 {
+    text-align: center;
+}
+
+/* Centrar contenido */
+
+.centrar {
+    text-align: center
+    } 
+
+/* Container - desde bajo el menú hasta el footer*/
+
+.containerbase {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+}
+
+
+
+    
+/* Aspecto Formularios */
+
+::placeholder {font-size: small;}
+
+.titulo_campo {
+display:inline-block;
+width:10%; 
+padding:10px;
+padding-top: 20px;
+padding-bottom: 50px;
+text-align: right;
+height: 20px ;
+}
+
+
+.linea{
+    width: 109px;
+
+}
+
+.lineaerror{
+    width: 109px;
+    color: red;
+    background-color: rgb(199, 46, 46);
+    
+
+}
+
+.respuesta_API{
+
+    display:inline-block;
+    width:205px; 
+    padding:10px;
+    padding-bottom: 50px;
+    text-align: center;
+    height: 20px ;
+  
+}
+
+
+.desplegable {
+
+    width: 210px;
+    height: 43px;
+    padding-top: 2px;
+    color:#14213D;
+    cursor: pointer;
+
+    
+}
+
+
+
+.aspecto{
+    background: url(https://image.flaticon.com/icons/svg/84/84263.svg) no-repeat 50% 50%;
+    background-size: 20px;
+    background-position-x: 170px;
+    
+    
+      -webkit-appearance: none;
+      appearance: none;
+      border: solid #E9C46A;
+      border-radius: 5px;
+
+    
+    }
+.aspecto_error{
+    background: url(https://image.flaticon.com/icons/svg/84/84263.svg) no-repeat 50% 50%;
+    background-color: red;
+    background-size: 20px;
+    background-position-x: 170px;
+   
+    
+    
+    -webkit-appearance: none;
+    appearance: none;
+    border: solid black;
+    border-radius: 5px;
+
+    
+    }
+.error-msg {
+    color: red;
+    font-size: 0.8em;
+    text-align: center;
+    display: block;
+    padding-bottom: 1px;
+
+
+}
+
+.ErrorImagencontenedor {
+    padding-left : 310px;
+    
+    
+}
+
+.imagen_error {
+    width:42px;
+    height:42px;
+}
+
+
+
+
+/* Icono calculadora */
+
+.icono {
+    display:inline-block;
+    background-image: url("https://image.flaticon.com/icons/svg/264/264363.svg");
+    background-size: 30px 30px;
+    width: 32px;
+    height: 32px; 
+    margin-right: -51px;
+    color:transparent
+
+}
+
+
+/* BOTONES */
+
+/* Menú superior */
+    
+.my-button {
+    color:grey;
+    background-color:#E9C46A;
+    border-color: #E9C46A;
+    margin-right: 3px;
+    }
+    
+    .my-button:hover {
+    color:white;
+    background-color: #FCA311 ;
+    border-color: #FCA311 ;
+    }
+    
+/* Efecto de haber pulsado */ 
+
+    .my-button:focus,.my-button.focus {
+    box-shadow: 0 0 0 0.2rem white;
+    }
+    
+    .my-button.disabled,.my-button:disabled {
+    color: #FCA311 ;
+    background-color: transparent;
+    }
+/* Efecto de cuando pulso */    
+    .my-button:not(:disabled):not(.disabled):active,.my-button:not(:disabled):not(.disabled).active,
+    .show >.my-button.dropdown-toggle {
+    color: white;
+    background-color: white;
+    border-color: white ;
+    }
+    
+    .my-button:not(:disabled):not(.disabled):active:focus,.my-button:not(:disabled):not(.disabled).active:focus,
+    .show >.my-button.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem white;
+    }
+
+
+/* Desactivar botón cuando se está en la misma página*/
+
+.desactivado { 
+    pointer-events: none; 
+    cursor: default; 
+    color: grey;
+    text-decoration: none;
+    border-color: #FBFAFF;
+    background-color: rgb(235, 223, 223);
+    margin-right: 3px;
+} 
+
+
+
+
+
+/* Botones inferiores */
+
+.botones_abajo {
+    color:#14213D;
+    background-color:white;
+    background-image: none;
+    border-color: #14213D;;
+    }
+    
+    .botones_abajo:hover {
+    color:white;
+    background-color: #14213D;
+    border-color: #14213D;
+    }
+    
+/* Efecto de haber pulsado */ 
+
+    .botones_abajo:focus,.botones_abajo.focus {
+    box-shadow: 0 0 0 0.2rem white;
+    }
+    
+    .botones_abajo.disabled,.botones_abajo:disabled {
+    color: #14213D;
+    background-color: transparent;
+    }
+/* Efecto de cuando pulso */    
+    .botones_abajo:not(:disabled):not(.disabled):active,.botones_abajo:not(:disabled):not(.disabled).active,
+    .show >.botones_abajo.dropdown-toggle {
+    color: white;
+    background-color: white;
+    border-color: #14213D;
+    }
+    
+    .botones_abajo:not(:disabled):not(.disabled):active:focus,.botones_abajo:not(:disabled):not(.disabled).active:focus,
+    .show >.botones_abajo.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem white;
+    }
+
+/* Tamaño botones inferiores */
+
+.personalizado {
+    width: 100px !important;
+    height: 50px;
+
+}
+
+.personalizado2 {
+    width: 130px !important;
+    height: 50px;
+
+}
+
+.boton_texto_largo {
+    width: 100px !important;
+    height: 50px;
+    font-size: 12px;
+}
+
+.centered {
+    display: flex;
+    flex-direction: row !important;
+    align-content: center !important;
+    justify-content: center !important;
+    align-self: center !important;
+    align-items: center !important;
+    margin:auto;
+    background-repeat:no-repeat;
+}
+
+.bg_status {
+
+    background-color: blanchedalmond;
+}
+
+.saldos {
+    padding-top: 100px;
+    max-width: 50%;
+}
+
+/* Personalizados */
+
+.personalizadoA{
+    padding-top: 40px;
+    } 
+
+
+.personalizadoB{
+    padding-bottom: 5%;
+    } 
+
+.personalizadoC{
+        padding-top: 20px;
+        } 
+.personalizadoD{
+    padding-top: 50px;
+} 
+

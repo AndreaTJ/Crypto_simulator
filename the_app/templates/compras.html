@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+
+{% block title  %} Compra de Cryptos {% endblock %}
+
+
+{% block link1 %}<a href="/" class="btn my-button">Transactions</a> {% endblock %}
+{% block link2 %}<a href="/purchase" class="btn my-button desactivado">Sell & Buy</a> {% endblock %}
+{% block link3 %}<a href="/status" class="btn my-button">Status</a> {% endblock %}
+
+
+
+{% block contenido %}
+    <h1> SELL & BUY CRYPTOS</h1>
+    <form action="/purchase" method="post">
+    {{ form.hidden_tag() }}
+
+    <div>
+        <p>-----RULES-----</p>
+        <p>1) You have an unlimited amount of EUR.</p>
+        <p>2) You can only exchange EUR to BTC (not another cryptocurrency).</p>
+        <p>3) You can only exchange BTC to EUR. (If you need EUR, you have to exchange my balance first to BTC and then to EUR.)</p>
+        <p>4) Cryptocurrencies can be exchanged with each other, without limitations, as long as there is enough balance.</p>
+    </div>
+
+        <div class="container">
+           
+            {% if form.Moneda_to.errors%}
+            <div class="row personalizadoC">
+                {% for error in form.Moneda_to.errors %}
+                            <div class="container error-msg">{{ error }}</div>
+                {% endfor%}
+            {% else %}            
+            <div class="row personalizadoA">
+            {% endif %} 
+
+                
+                <div class="col centrar">
+                    <div>
+                        <span >{{ form.Moneda_from.label (class = "titulo_campo")}} </span>
+                        {% if form.Moneda_from.errors%}
+                        <span > {{ form.Moneda_from(class= "desplegable aspecto_error") }}</span >
+                            {% for error in form.Moneda_from.errors %}
+                            <div class="error-msg">{{ error }}</div>
+                            {% endfor%}
+                            {% else %}
+                            <span > {{ form.Moneda_from(class= "desplegable aspecto") }}</span >
+                        {% endif %}
+                    
+                    </div>
+
+                    <div>
+                        <span >{{ form.Cantidad_from.label (class = "titulo_campo")}} </span>
+                        {% if form.Cantidad_from.errors%}
+                        <span>{{ form.Cantidad_from( placeholder="Quantity to exchange") }}</span>
+                        <span> {{ form.calcular(class="icono")}}</span>
+                            {% for error in form.Cantidad_from.errors %}
+                            <div class="error-msg">{{ error }}</div>
+                            {% endfor%}
+                            {% else %}
+                        <span>{{ form.Cantidad_from( placeholder="Quantity to exchange") }}</span>
+                        <span> {{ form.calcular(class="icono")}}</span>
+                        {% endif %}
+                    
+                    </div> 
+
+                    <div>
+                        {% if error_Datos %}
+                            <div class="ErrorImagencontenedor"> <img src="https://cdn3.iconfinder.com/data/icons/pandora/uplevel_no_text.png" alt="Flecha" class = "imagen_error"></div>
+                        {% endif %}
+            
+                    </div>
+                    
+                    <div>
+                        {% if error_BBDD %}
+                        <div class="error-msg", style="text-align: justify;">{{error_BBDD}}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="container">
+                        {% if error_Datos %}
+                            <div class="error-msg">{{error_Datos}}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="container">
+                        {% if errorApi %}
+                            <div class="error-msg">{{errorApi}}</div>
+                        {% endif %}
+                    </div>
+                    
+
+                    
+
+                </div>
+
+                
+
+                
+                <div class="col centrar">
+                
+                    <div>
+                        
+                        <span >{{ form.Moneda_to.label (class = "titulo_campo")}} </span>
+                        {% if form.Moneda_to.errors%}
+                        <span > {{ form.Moneda_to(class= "desplegable aspecto_error") }}</span >
+                            {% else %}
+                            <span > {{ form.Moneda_to(class= "desplegable aspecto") }}</span >
+                        {% endif %}
+                        
+                        
+            
+                    <div>
+
+                    <div>
+                        
+                            
+                        
+                        <span class = "titulo_campo"> Q: </span>
+                        {% if Cantidad_Conseguida %}
+                        <span class="respuesta_API"> {{ Cantidad_Conseguida }} </span>
+                        {% else %}
+                        {% if error_Datos %}
+                        <span class ="lineaerror"> ______________________</span>
+                        {% else %}
+                        <span class ="linea"> ______________________ </span>
+                        {% endif %}
+                        {% endif %}
+
+
+                        
+                
+                    <div>
+
+
+                    <div>
+                        
+
+                        <span class = "titulo_campo"> P.U.: </span>
+                        {% if PU%}
+                        <span  class="respuesta_API"> {{ PU }} </span>
+                        {% else %}
+                        {% if error_Datos %}
+                        <span class ="lineaerror"> ______________________</span>
+                        {% else %}
+                        <span class ="linea"> ______________________</span>
+                        {% endif %}
+                        {% endif %}
+                        
+                        
+
+
+                    </div>
+        
+        
+                <div>  
+                       
+            </div>
+        
+        </div>
+
+            <div class="d-flex flex-row-reverse">
+                <div class="p-2"> {{ form.aceptar(class="btn botones_abajo boton_texto_largo text-wrap centered")}}</div>
+                <div class="p-2"><a class="btn botones_abajo boton_texto_largo text-wrap centered"  href="/">Back to Transactions</a></div>
+                
+            </div>
+        </div>
+        
+                   
+
+    </form >
+
+{% endblock %}
