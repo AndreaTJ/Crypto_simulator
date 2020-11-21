@@ -1,43 +1,43 @@
-# Simulador de Cryptos 
+# Cryptocurrency Exchange Simulator
 
-## Instalación 
-1.Ejecutar
+## Installation 
+1.Run
 ```
 pip install -r requirements.txt
 ```
 
-2.Crear config.py
+2.Create config.py
 
-* Renombrar `config_template.py` a `config.py` e informar correctamente sus claves.
+* Rename `config_template.py` to `config.py` and fill in the information required. 
 
 
-3.Crear Base de Datos. 
+3.Create Database
 
-*	Ejecutar `migrations.sql` con `sqlite3` en el 	fichero elegido como Base de Datos. 
+*	Run  `migrations.sql` with `sqlite3` in the file chosen as the Database. 
 
-4.Renombrar `config_template.ini` a `config.ini` e informar correctamente su APIKEY.
+4.Rename `config_template.ini` to `config.ini` and fill in the APIKEY.
 
-* Para obtener la APIKEY, visite [CoinMarketCap](https://coinmarketcap.com/api/). Existe un plan gratuito. 
+* To obtain the APIKEY, visit: [CoinMarketCap](https://coinmarketcap.com/api/). There is a free plan available.  
 
-5.Informar correctamente .env (solo para desarrollo)
+5.Fill in the information required in .env (development only)
 
-Renombrar `.env_template` a `.env` e informar las claves
+Rename `.env_template` to `.env` and copy the information below. 
 
     - FLASK_APP=run.py
-    - FLASK_ENV=`development` o `production``
+    - FLASK_ENV=`development` or `production``
 
 
-6.Ejecutar 
+6.Run
 
 ```
 python cargaMonedas.py
 ```
 
-7.Ejecutar 
+7.Run
 
 ```
 flask run
 ```
 
 
-Por favor, recuerde que necesita conexión a Internet..
+An Internet connection is required. 
